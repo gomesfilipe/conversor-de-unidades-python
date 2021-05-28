@@ -1,21 +1,18 @@
-from conversor_biblioteca import *
+from biblioteca import *
 from PySimpleGUI import PySimpleGUI as sg
 
-def telaConversorVolume():
-    unidades = ['mm3', 'cm3', 'dm3', 'm3', 'dam3', 'hm3', 'km3']
+def telaConversao(funcao, unidades, undInicial, undFinal, titulo):
     valorInicial = 0
     valorFinal = 0
-    undInicial = 'm3'
-    undFinal = 'm3'
 
     sg.theme('BlueMono')
 
     layout = [
-        [sg.Text('Converter'), sg.InputText(size=(20,1)), sg.Combo(unidades, default_value='m2'), sg.Text('para'), sg.Combo(unidades, default_value='m2'), sg.Button('Converter')],
+        [sg.Text('Converter'), sg.InputText(size=(20,1)), sg.Combo(unidades, default_value=undInicial), sg.Text('para'), sg.Combo(unidades, default_value=undFinal), sg.Button('Converter')],
         [sg.Text(valorInicial, key='valor-inicial', size=(20,1)), sg.Text(undInicial, key='unidade-inicial', size=(4,1)), sg.Text('equivale a'), sg.Text(valorFinal, key='valor-final', size=(20,1)), sg.Text(undFinal, key='unidade-final', size=(4,1))]
     ]
 
-    window = sg.Window('Conversor de Volumes', layout)
+    window = sg.Window(titulo, layout)
 
     while True:
         evento, valores = window.read()
@@ -26,11 +23,14 @@ def telaConversorVolume():
             valorInicial = valores[0]
             undInicial = valores[1]
             undFinal = valores[2]
-            valorFinal = conversorVolume(valorInicial, undInicial, undFinal, unidades)
+            valorFinal = funcao(valorInicial, undInicial, undFinal, unidades)
         
-        if not ehNumero(valorInicial):
-            valorInicial = '0'
-        
+        if not ehNumero(valorInicial) or not estaNaLista(undInicial, unidades) or not estaNaLista(undFinal, unidades):
+            valorInicial = ''
+            valorFinal = ''
+            undInicial = ''
+            undFinal = ''
+
         window['valor-inicial'].update(valorInicial)
         window['valor-final'].update(valorFinal)
         
