@@ -2,7 +2,10 @@ from conversor import *
 from PySimpleGUI import PySimpleGUI as sg
 
 unidades = ['mm', 'cm', 'dm', 'm', 'dam', 'hm', 'km']
-valorInicial = 0, valorFinal = 0, undInicial = 'm', undFinal = 'm'
+valorInicial = 0 
+valorFinal = 0 
+undInicial = 'm' 
+undFinal = 'm'
 
 sg.theme('BlueMono')
 
@@ -16,7 +19,9 @@ window = sg.Window('Conversor de Comprimentos', layout)
 while True:
     evento, valores = window.read()
     
-    valorInicial = valores[0], undInicial = valores[1], undFinal = valores[2]
+    valorInicial = valores[0] 
+    undInicial = valores[1] 
+    undFinal = valores[2]
 
     if evento == sg.WIN_CLOSED:
         break
