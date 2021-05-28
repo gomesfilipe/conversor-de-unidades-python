@@ -28,3 +28,6 @@ def conversorVolume(valor, undInicial, undFinal, unidadesVolume):
         return valor * 10 ** (3 * distancia)
 
     return 0
+
+def conversorGenerico(valor, undInicial, undFinal, unidades, funcao):
+    return funcao(valor, undInicial, undFinal, unidades)
