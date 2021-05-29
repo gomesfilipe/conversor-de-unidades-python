@@ -11,8 +11,8 @@ tituloArea = 'Conversor de Áreas'
 tituloVolume = 'Conversor de Volumes'
 
 legendaComprimento = 'mm: milímetros\ncm: centímetros\ndm: decímetros\nm: metros\ndam: decâmetros\nhm: hectômetros\nkm: quilômetros'
-legendaArea = 'mm: milímetros quadrados\ncm: centímetros quadrados\ndm: decímetros quadrados\nm: metros quadrados\ndam: decâmetros quadrados\nhm: hectômetros quadrados\nkm: quilômetros quadrados'
-legendaVolume = 'mm: milímetros cúbicos\ncm: centímetros cúbicos\ndm: decímetros cúbicos\nm: metros cúbicos\ndam: decâmetros cúbicos\nhm: hectômetros cúbicos\nkm: quilômetros cúbicos'
+legendaArea = 'mm2: milímetros quadrados\ncm2: centímetros quadrados\ndm2: decímetros quadrados\nm2: metros quadrados\ndam2: decâmetros quadrados\nhm2: hectômetros quadrados\nkm2: quilômetros quadrados'
+legendaVolume = 'mm3: milímetros cúbicos\ncm3: centímetros cúbicos\ndm3: decímetros cúbicos\nm3: metros cúbicos\ndam3: decâmetros cúbicos\nhm3: hectômetros cúbicos\nkm3: quilômetros cúbicos'
 
 sg.theme('BlueMono')
 

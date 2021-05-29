@@ -12,7 +12,7 @@ def telaConversao(funcaoConversao, unidades, undInicial, undFinal, titulo, legen
         [sg.Text('Converter'), sg.InputText(size=(20,1)), sg.Combo(unidades, default_value=undInicial), sg.Text('para'), sg.Combo(unidades, default_value=undFinal), sg.Button('Converter')],
         [sg.Text(valorInicial, key='valor-inicial', size=(20,1)), sg.Text(undInicial, key='unidade-inicial', size=(4,1)), sg.Text('equivale a'), sg.Text(valorFinal, key='valor-final', size=(20,1)), sg.Text(undFinal, key='unidade-final', size=(4,1))],
         [sg.Checkbox('Legenda', enable_events=True)], 
-        [sg.Text(legenda, key='legenda', visible=False)]
+        [sg.Text(legenda, key='legenda', visible=False, background_color='white')]
     ]
 
     window = sg.Window(titulo, layout)
@@ -36,7 +36,6 @@ def telaConversao(funcaoConversao, unidades, undInicial, undFinal, titulo, legen
             else:
                 verLegenda = 0
                 window['legenda'].update(visible=False)
-
 
         if not ehNumero(valorInicial) or not estaNaLista(undInicial, unidades) or not estaNaLista(undFinal, unidades):
             valorInicial = ''
