@@ -10,6 +10,10 @@ tituloComprimento = 'Conversor de Comprimentos'
 tituloArea = 'Conversor de Áreas'
 tituloVolume = 'Conversor de Volumes'
 
+legendaComprimento = 'mm: milímetros\ncm: centímetros\ndm: decímetros\nm: metros\ndam: decâmetros\nhm: hectômetros\nkm: quilômetros'
+legendaArea = 'mm: milímetros quadrados\ncm: centímetros quadrados\ndm: decímetros quadrados\nm: metros quadrados\ndam: decâmetros quadrados\nhm: hectômetros quadrados\nkm: quilômetros quadrados'
+legendaVolume = 'mm: milímetros cúbicos\ncm: centímetros cúbicos\ndm: decímetros cúbicos\nm: metros cúbicos\ndam: decâmetros cúbicos\nhm: hectômetros cúbicos\nkm: quilômetros cúbicos'
+
 sg.theme('BlueMono')
 
 layout = [
@@ -26,26 +30,29 @@ while True:
         break
     
     elif evento == 0: # Comprimento
-        funcao = conversorComprimento
+        funcaoConversao = conversorComprimento
         unidades = unidadesComprimento
         undInicial = 'm'
         undFinal = 'm'
         titulo = tituloComprimento
+        legenda = legendaComprimento
         
     elif evento == 1: # Área
-        funcao = conversorArea
+        funcaoConversao = conversorArea
         unidades = unidadesArea
         undInicial = 'm2'
         undFinal = 'm2'
         titulo = tituloArea
+        legenda = legendaArea
     
     elif evento == 2: # Volume
-        funcao = conversorVolume
+        funcaoConversao = conversorVolume
         unidades = unidadesVolume
         undInicial = 'm3'
         undFinal = 'm3'
         titulo = tituloVolume
+        legenda = legendaVolume
 
-    telaConversao(funcao, unidades, undInicial, undFinal, titulo)
+    telaConversao(funcaoConversao, unidades, undInicial, undFinal, titulo, legenda)
 
 window.close()
