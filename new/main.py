@@ -12,10 +12,6 @@ class initialWindow:
         self.area = sg.Button('Area Converter')
         self.volum = sg.Button('Volum Converter')
 
-        # self.length_converter = ConvertWindow(LengthConverter())
-        # self.area_converter = ConvertWindow(AreaConverter())
-        # self.volum_converter = ConvertWindow(VolumConverter())
-
         self.layout = [
             [self.msg],
             [self.length],
@@ -27,7 +23,6 @@ class initialWindow:
         if event == 'Length Converter':
             length_converter = ConvertWindow(LengthConverter())
             length_converter.run_converter()
-            # self.length_converter.run_converter()
 
         elif event == 'Area Converter':
             area_converter = ConvertWindow(AreaConverter())
