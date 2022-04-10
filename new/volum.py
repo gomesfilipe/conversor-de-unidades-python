@@ -28,3 +28,11 @@ class VolumConverter:
             return float(value) * self.scale[fr] / self.scale[to]
         else:
             return ''
+
+    def generate_legend(self):
+        legend = ''
+        for key in self.legend:
+            legend = legend + key + ': ' + self.legend[key] + '\n'
+    
+        return legend
+        

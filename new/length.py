@@ -10,7 +10,7 @@ class LengthConverter:
             'hm': 100, 
             'km': 1000
         }
-
+        
         self.legend = {
             'mm': 'millimeter',
             'cm': 'centimeter',
@@ -28,3 +28,11 @@ class LengthConverter:
             return float(value) * self.scale[fr] / self.scale[to]
         else:
             return ''
+
+    def generate_legend(self):
+        legend = ''
+        for key in self.legend:
+            legend = legend + key + ': ' + self.legend[key] + '\n'
+        
+        return legend
+        

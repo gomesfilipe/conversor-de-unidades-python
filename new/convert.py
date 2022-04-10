@@ -1,3 +1,4 @@
+from pydoc import visiblename
 from PySimpleGUI import PySimpleGUI as sg
 from length import LengthConverter
 from area import AreaConverter
@@ -20,11 +21,16 @@ class ConvertWindow:
         self.reset =     sg.Button('Reset', size=(6,1))
         self.visor =     sg.Text(self.result, size=(39,1), justification='center', background_color='white', text_color='black', key='visor')
         self.copy =      sg.Button('Copy', size=(6,1))
+        self.checkbox = sg.Checkbox('Legend', enable_events=True)
+        self.legend = sg.Text(self.converter.generate_legend(), visible=False, background_color='white', key='legend')
+        self.visible = False
 
         self.layout = [
             [self.conv, self.input, self.unit_from, self.to, self.unit_to],
             [self.convert, self.reset],
-            [self.visor, self.copy]
+            [self.visor, self.copy],
+            [self.checkbox],
+            [self.legend]
         ] 
 
     def run_event(self, event, values):
@@ -40,13 +46,18 @@ class ConvertWindow:
             pp.copy(str(self.result))
 
     def run_converter(self):
-        window = sg.Window(self.converter.name, self.layout, return_keyboard_events=True)
+        window = sg.Window(self.converter.name, self.layout)
 
         while True:
             event, values = window.read()
 
             if event == sg.WIN_CLOSED:
-                break   
+                break
+
+            elif event == 3: # legenda
+                self.visible = not self.visible
+                window['legend'].update(visible=self.visible)
+            
             else:
                 self.run_event(event, values)
             
